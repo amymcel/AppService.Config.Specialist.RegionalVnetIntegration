@@ -25,13 +25,13 @@
     }
   },
   "variables": {
-    "appServicePlanName": "[concat(parameters('EngineerAlias'),'-ASPR')]",
-    "appName": "[concat(parameters('EngineerAlias'),'-APPR')]",
+    "appServicePlanName": "[concat(parameters('EngineerAlias'),'-R-ASP')]",
+    "appName": "[concat(parameters('EngineerAlias'),'-R-APP')]",
     "appServicePlanSku": "S1",
 
     "GlobalNetworkSecurityGroup": "Global-NSG-R",
 
-    "vnetName1": "[concat(parameters('EngineerAlias'), '-Rnet1')]",
+    "vnetName1": "[concat(parameters('EngineerAlias'), '-R-Vnet1')]",
     "location1": "WestUS",
     "vnet1AddressPrefix": "10.201.0.0/16",
     "subnet1Name1": "default",
@@ -39,13 +39,13 @@
     "subnet1Name2": "apps",
     "subnet1AddressPrefix2": "10.201.2.0/24",
 
-    "vnetName2": "[concat(parameters('EngineerAlias'), '-Rnet2')]",
+    "vnetName2": "[concat(parameters('EngineerAlias'), '-R-Vnet2')]",
     "location2": "WestUS",
     "vnet2AddressPrefix": "10.202.0.0/16",
     "subnet2Name1": "default",
     "subnet2AddressPrefix1": "10.202.1.0/24",
 
-    "vnetName3": "[concat(parameters('EngineerAlias'), '-Rnet3')]",
+    "vnetName3": "[concat(parameters('EngineerAlias'), '-R-Vnet3')]",
     "location3": "WestUS",
     "vnet3AddressPrefix": "20.0.0.0/16",
     "subnet3Name1": "default",
@@ -349,7 +349,7 @@
           "tier": "VpnGw1"
         }
       }
-    },
+    }
     //Virtual Machines 1, 2 and 3 --------------------------------------------------------------------
     {
       "name": "[variables('publicIPAddress1Name')]",
