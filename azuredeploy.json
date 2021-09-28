@@ -25,13 +25,13 @@
     }
   },
   "variables": {
-    "appServicePlanName": "[concat(parameters('EngineerAlias'),'-ASP')]",
-    "appName": "[concat(parameters('EngineerAlias'),'-APP')]",
+    "appServicePlanName": "[concat(parameters('EngineerAlias'),'-ASPR')]",
+    "appName": "[concat(parameters('EngineerAlias'),'-APPR')]",
     "appServicePlanSku": "S1",
 
-    "GlobalNetworkSecurityGroup": "Global-NSG",
+    "GlobalNetworkSecurityGroup": "Global-NSG-R",
 
-    "vnetName1": "[concat(parameters('EngineerAlias'), '-Vnet1')]",
+    "vnetName1": "[concat(parameters('EngineerAlias'), '-Rnet1')]",
     "location1": "WestUS",
     "vnet1AddressPrefix": "10.201.0.0/16",
     "subnet1Name1": "default",
@@ -39,32 +39,32 @@
     "subnet1Name2": "apps",
     "subnet1AddressPrefix2": "10.201.2.0/24",
 
-    "vnetName2": "[concat(parameters('EngineerAlias'), '-Vnet2')]",
+    "vnetName2": "[concat(parameters('EngineerAlias'), '-Rnet2')]",
     "location2": "WestUS",
     "vnet2AddressPrefix": "10.202.0.0/16",
     "subnet2Name1": "default",
     "subnet2AddressPrefix1": "10.202.1.0/24",
 
-    "vnetName3": "[concat(parameters('EngineerAlias'), '-Vnet3')]",
+    "vnetName3": "[concat(parameters('EngineerAlias'), '-Rnet3')]",
     "location3": "WestUS",
     "vnet3AddressPrefix": "20.0.0.0/16",
     "subnet3Name1": "default",
     "subnet3AddressPrefix1": "20.0.0.0/24",
 
-    "vm1Name": "[concat(parameters('EngineerAlias'), '-V1-vm1')]",
-    "nic1Name": "[concat(parameters('EngineerAlias'), '-V1-vm1nic')]",
-    "publicIPAddress1Name": "[concat(parameters('EngineerAlias'), '-V1-vm1ip')]",
+    "vm1Name": "[concat(parameters('EngineerAlias'), '-R1-vm1')]",
+    "nic1Name": "[concat(parameters('EngineerAlias'), '-R1-vm1nic')]",
+    "publicIPAddress1Name": "[concat(parameters('EngineerAlias'), '-R1-vm1ip')]",
 
-    "vm2Name": "[concat(parameters('EngineerAlias'), '-V2-vm2')]",
-    "nic2Name": "[concat(parameters('EngineerAlias'), '-V2-vm2nic')]",
-    "publicIPAddress2Name": "[concat(parameters('EngineerAlias'), '-V2-vm2ip')]",
+    "vm2Name": "[concat(parameters('EngineerAlias'), '-R2-vm2')]",
+    "nic2Name": "[concat(parameters('EngineerAlias'), '-R2-vm2nic')]",
+    "publicIPAddress2Name": "[concat(parameters('EngineerAlias'), '-R2-vm2ip')]",
 
-    "vm3Name": "[concat(parameters('EngineerAlias'), '-V3-vm3')]",
-    "nic3Name": "[concat(parameters('EngineerAlias'), '-V3-vm3nic')]",
-    "publicIPAddress3Name": "[concat(parameters('EngineerAlias'), '-V3-vm3ip')]",
+    "vm3Name": "[concat(parameters('EngineerAlias'), '-R3-vm3')]",
+    "nic3Name": "[concat(parameters('EngineerAlias'), '-R3-vm3nic')]",
+    "publicIPAddress3Name": "[concat(parameters('EngineerAlias'), '-R3-vm3ip')]",
 
-    "VpnGw1Name": "[concat(parameters('EngineerAlias'), '-V1-GM1')]",
-    "Gw1IPAddressName": "[concat(parameters('EngineerAlias'), '-V1-GM1ip')]",
+    "VpnGw1Name": "[concat(parameters('EngineerAlias'), '-R1-GM1')]",
+    "Gw1IPAddressName": "[concat(parameters('EngineerAlias'), '-R1-GM1ip')]",
     "Gw1subnetName": "GatewaySubnet",
     "Gw1subnetAddress": "10.201.0.0/24"
     //"localGW1Name": "[concat(parameters('EngineerAlias'), '-localGM1')]"
@@ -382,13 +382,13 @@
               "privateIPAllocationMethod": "Dynamic",
               "publicIpAddress": {
                 "id": "[resourceId(resourceGroup().name, 'Microsoft.Network/publicIPAddresses', variables('publicIpAddress1Name'))]"
-              },
-              "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('GlobalNetworkSecurityGroup'))]"
               }
             }
           }
-        ]
+        ],
+        "networkSecurityGroup": {
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('GlobalNetworkSecurityGroup'))]"
+        }
       }
     },
     {
@@ -471,13 +471,13 @@
               "privateIPAllocationMethod": "Dynamic",
               "publicIpAddress": {
                 "id": "[resourceId(resourceGroup().name, 'Microsoft.Network/publicIPAddresses', variables('publicIpAddress2Name'))]"
-              },
-              "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('GlobalNetworkSecurityGroup'))]"
               }
             }
           }
-        ]
+        ],
+        "networkSecurityGroup": {
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('GlobalNetworkSecurityGroup'))]"
+        }
       }
     },
     {
@@ -560,13 +560,13 @@
               "privateIPAllocationMethod": "Dynamic",
               "publicIpAddress": {
                 "id": "[resourceId(resourceGroup().name, 'Microsoft.Network/publicIPAddresses', variables('publicIpAddress3Name'))]"
-              },
-              "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('GlobalNetworkSecurityGroup'))]"
               }
             }
           }
-        ]
+        ],
+        "networkSecurityGroup": {
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('GlobalNetworkSecurityGroup'))]"
+        }
       }
     },
     {
