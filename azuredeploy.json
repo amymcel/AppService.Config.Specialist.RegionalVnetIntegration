@@ -349,7 +349,7 @@
           "tier": "VpnGw1"
         }
       }
-    }
+    },
     //Virtual Machines 1, 2 and 3 --------------------------------------------------------------------
     {
       "name": "[variables('publicIPAddress1Name')]",
