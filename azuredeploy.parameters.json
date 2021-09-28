@@ -4,6 +4,6 @@
   "parameters": {
     "EngineerAlias": { "value": "amy" },
     "adminUsername": { "value": "configadmin" },
-    "adminPassword": { "value": "configpw" }
+    "adminPassword": { "value": "configPW" }
   }
 }
